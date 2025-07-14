@@ -1,0 +1,21 @@
+version: '3.8'
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: webshop_mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: senha
+      MYSQL_DATABASE: sistema_vendas
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - webshop_network
+
+volumes:
+  mysql_data:
+
+networks:
+  webshop_network:
+    driver: bridge
