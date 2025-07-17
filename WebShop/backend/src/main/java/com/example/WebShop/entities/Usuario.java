@@ -1,5 +1,8 @@
 package com.example.WebShop.entities;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import lombok.Getter;
@@ -28,4 +31,7 @@ public class Usuario {
 
     @Column(nullable = false)
     private String role; 
+
+    @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Produto> produtos = new ArrayList<>();
 }
