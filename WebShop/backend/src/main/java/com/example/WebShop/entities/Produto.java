@@ -50,4 +50,5 @@ public class Produto {
 
     @Column(name = "data_atualizacao")
     private LocalDateTime dataAtualizacao;
+
 }
