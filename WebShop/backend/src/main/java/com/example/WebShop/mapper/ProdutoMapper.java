@@ -16,7 +16,7 @@ public interface ProdutoMapper {
     Produto toEntity(ProdutoRequestDto dto);
 
     @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
-    void updateEntityFromDto(ProdutoRequestDto dto, @MappingTarget Produto entity);
+    void updateEntityFromDto(ProdutoResponseDto dto, @MappingTarget Produto entity);
 
     List<ProdutoResponseDto> toDtoList(List<Produto> entities);
     
