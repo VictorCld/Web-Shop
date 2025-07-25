@@ -43,7 +43,17 @@ public class ProdutoService {
         return produtoMapper.toDto(produtoSaved);
     }
     // ======================== PUT =========================
+    public ProdutoResponseDto update(Long id, ProdutoRequestDto produtoRequestDto){
+        Produto produto = produtoRepository.findById(id).orElseThrow(() -> new NotFoundException("Produto não encontrado."));
 
+        ProdutoResponseDto produtoResponseDto = produtoMapper.toDto(produtoMapper.toEntity(produtoRequestDto));
+
+        produtoMapper.updateEntityFromDto(produtoResponseDto, produto);
+
+        Produto produtoAtualizado = produtoRepository.save(produto);
+
+        return produtoMapper.toDto(produtoAtualizado);
+    }
     // ======================= DELETE =======================
 
 }
