@@ -6,7 +6,7 @@ import org.mapstruct.*;
 
 import com.example.WebShop.dto.produto.ProdutoRequestDto;
 import com.example.WebShop.dto.produto.ProdutoResponseDto;
-import com.example.WebShop.entities.Produto;
+import com.example.WebShop.entities.Product.Produto;
 
 @Mapper(componentModel = "spring")
 public interface ProdutoMapper {
