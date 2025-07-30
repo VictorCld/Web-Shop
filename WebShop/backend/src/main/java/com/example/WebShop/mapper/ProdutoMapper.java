@@ -6,7 +6,7 @@ import org.mapstruct.*;
 
 import com.example.WebShop.dto.produto.ProdutoRequestDto;
 import com.example.WebShop.dto.produto.ProdutoResponseDto;
-import com.example.WebShop.entities.Produto;
+import com.example.WebShop.entities.Product.Produto;
 
 @Mapper(componentModel = "spring")
 public interface ProdutoMapper {
@@ -16,7 +16,7 @@ public interface ProdutoMapper {
     Produto toEntity(ProdutoRequestDto dto);
 
     @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
-    void updateEntityFromDto(ProdutoRequestDto dto, @MappingTarget Produto entity);
+    void updateEntityFromDto(ProdutoResponseDto dto, @MappingTarget Produto entity);
 
     List<ProdutoResponseDto> toDtoList(List<Produto> entities);
     
